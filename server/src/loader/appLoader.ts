@@ -23,7 +23,7 @@ const runServer = () => {
     app.use(bodyParser.json())
 
     app.listen(appConfig.expressPort, () => {
-        console.log(`Server listening at http://localhost:${appConfig.expressPort}`)
+        console.log(`Server naslouchá na portu http://localhost:${appConfig.expressPort}`)
     }).on('error', err => {
         console.log(err)
         process.exit(1)

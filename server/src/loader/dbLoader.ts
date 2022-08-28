@@ -16,7 +16,7 @@ const mongoDB = async (): Promise<Db> => {
                 dbName: 'verynice'
             } as ConnectOptions)
 
-        console.log('MongoDB runs on port ', dbConfig.dbPort)
+        console.log('MongoDB spuštěna na portu ', dbConfig.dbPort)
         return connection.connection.db
 
     } catch (err) {
