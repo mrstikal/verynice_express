@@ -3,7 +3,7 @@ import validator from 'validator'
 import IUser from '../interface/IUser'
 import bcrypt from 'bcryptjs'
 
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
 
@@ -59,10 +59,20 @@ userSchema.pre('save', function (next) {
         console.log('Uživatel nezadal heslo')
         next()
     } else {
-        //@ts-ignore
-        this.password = this.hashPassword(this.password)
+        this.password = userSchema.methods.hashPassword(this.password)
         next()
     }
+})
+
+userSchema.pre('findOneAndUpdate', function (next) {
+
+    const update: any = { ...this.getUpdate() }
+
+    if (update.password) {
+        update.password = userSchema.methods.hashPassword(update.password)
+        this.setUpdate(update)
+    }
+    next()
 })
 
 export default mongoose.model<IUser>('User', userSchema)

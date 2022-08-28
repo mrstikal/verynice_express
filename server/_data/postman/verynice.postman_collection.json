@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "a18a18b6-a0d4-4ed9-89d5-ed16c7c8a51a",
+		"name": "verynice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10195487"
+	},
+	"item": [
+		{
+			"name": "User signUp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "111111",
+							"description": "string, required",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "e@jfd.cuz",
+							"description": "valid email, unique,  required",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "manager_1",
+							"description": "string, unique,  required",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "manager",
+							"description": "'user' | 'manager' | 'admin', default: user",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"description": "boolean, default: true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/v1/user/get-users?role=admin&returnInResponse[]=name&returnInResponse[]=email&returnInResponse[]=id",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"get-users"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "true",
+							"description": "boolean",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"description": "string"
+						},
+						{
+							"key": "returnInResponse[]",
+							"value": "name",
+							"description": "fields returned by response\ncan be added multiple times\nleave blank if you want return all fields"
+						},
+						{
+							"key": "returnInResponse[]",
+							"value": "email"
+						},
+						{
+							"key": "returnInResponse[]",
+							"value": "id"
+						},
+						{
+							"key": "returnInResponse[]",
+							"value": "password",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "onlyuser",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "630a97c8cea97ca8511ac395",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/user/delete-user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"delete-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/v1/user/get-one-user?name=admin_2",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"get-one-user"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "b@jfd.cuz",
+							"description": "valid email",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "630bb0fcfe0611df5502bb92",
+							"description": "MongoDB id",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "admin_2",
+							"description": "username"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "admin6",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "fdbvdabgd",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "d@jfd.cuz",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/user/update-user?email=b@jfd.cuz",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"update-user"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "b@jfd.cuz",
+							"description": "valid email"
+						},
+						{
+							"key": "id",
+							"value": "630bb0fcfe0611df5502bb92",
+							"description": "MongoDB id",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
