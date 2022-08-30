@@ -25,19 +25,19 @@
 						},
 						{
 							"key": "email",
-							"value": "e@jfd.cuz",
+							"value": "f@fdvaf.vh",
 							"description": "valid email, unique,  required",
 							"type": "text"
 						},
 						{
 							"key": "name",
-							"value": "manager_1",
+							"value": "user_1",
 							"description": "string, unique,  required",
 							"type": "text"
 						},
 						{
 							"key": "role",
-							"value": "manager",
+							"value": "user",
 							"description": "'user' | 'manager' | 'admin', default: user",
 							"type": "text"
 						},
@@ -60,6 +60,71 @@
 						"v1",
 						"user",
 						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User signIn",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "111111",
+							"description": "string, required",
+							"type": "text"
+						},
+						{
+							"key": "nameOrEmail",
+							"value": "d@jfd.cuz",
+							"description": "username or email, required",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/user/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserlogOut",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/v1/user/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"logout"
 					]
 				}
 			},
@@ -95,7 +160,7 @@
 						{
 							"key": "role",
 							"value": "admin",
-							"description": "string"
+							"description": "string 'user' | 'manager' | 'admin'"
 						},
 						{
 							"key": "returnInResponse[]",
@@ -218,8 +283,7 @@
 						{
 							"key": "email",
 							"value": "d@jfd.cuz",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						}
 					]
 				},
