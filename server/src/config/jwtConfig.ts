@@ -11,13 +11,9 @@ if (environment.error) {
     throw new Error("Enviroment config file not found")
 }
 
-const appConfig = {
-    dbURL: process.env.DB_URI as string,
-    expressPort: process.env.DB_URL || 5000,
-    viewEngine: process.env.VIEW_ENGINE || 'pug',
-    viewPath: process.env.VIEW_PATH || 'view',
-    staticPath: process.env.STATIC_PATH || 'public',
-    sessionSecret: process.env.SESSION_SECRET as string 
+const jwtConfig = {
+    jwtSecret: process.env.JWT_SECRET as string,
+    jwtExpiration: Number(process.env.JWT_EXPIRATION),
 }
 
-export default appConfig
+export default jwtConfig
