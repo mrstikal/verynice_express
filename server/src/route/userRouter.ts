@@ -10,7 +10,7 @@ userRouter.post('/signup', userValidator, userController.signUp)
 
 userRouter.post('/signin', auth)
 
-userRouter.get("/logout", (req: any, res: any) => {
+userRouter.post("/logout", (req: any, res: any) => {
     req.logout((err: any) => {
         if (err) { res.status(400).send(err) }
         res.status(202).send('Odhlášení proběhlo úspěšně')
